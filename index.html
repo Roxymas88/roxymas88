@@ -84,7 +84,7 @@ const products=[
   {name:"No.24 Alat Pembuat Popcorn 3.5L",cat:"Rumah",price:"Rp250.200",img:"https://i.ibb.co/9knddXVS/Whats-App-Image-2026-05-29-at-11-28-25-1.jpg",url:"https://s.shopee.co.id/AUrBz5jbXP"},
   {name:"No.25 Mesin Pengering 3 in 1",cat:"Rumah",price:"Rp180.000",img:"https://i.ibb.co/mV7TYyC5/Whats-App-Image-2026-05-29-at-11-28-26.jpg",url:"https://s.shopee.co.id/70HJolym92"},
   {name:"No.26 Vacuum Cleaner Robot",cat:"Rumah",price:"Rp498.600",img:"https://i.ibb.co/VWQV594K/Whats-App-Image-2026-05-29-at-11-28-51.jpg",url:"https://s.shopee.co.id/17ZZqZVMl"},
-  {name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp2.300",img:"https://i.ibb.co/LXNwg4jY/Whats-App-Image-2026-05-29-at-11-28-33.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
+  {name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp23.000",img:"https://i.ibb.co/LXNwg4jY/Whats-App-Image-2026-05-29-at-11-28-33.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
   {name:"No.28 Bantal Anti Leher Bongkok",cat:"Rumah",price:"Rp260.100",img:"https://i.ibb.co/BVjZXM1p/Whats-App-Image-2026-05-29-at-11-28-33-2.jpg",url:"https://s.shopee.co.id/4Ax8T3CxUc"},
   {name:"No.29 Penutup Celah Pintu",cat:"Rumah",price:"Rp20.500",img:"https://i.ibb.co/1t8mY7Hx/Whats-App-Image-2026-05-29-at-11-28-40.jpg",url:"https://s.shopee.co.id/30lB5yCjom"},
   {name:"No.30 Aquarium Mini Hype",cat:"Rumah",price:"Rp124.200",img:"https://i.ibb.co/Jj0sFTyT/Whats-App-Image-2026-05-29-at-11-28-48-2.jpg",url:"https://s.shopee.co.id/8fPXsKTJMF"},
@@ -156,7 +156,7 @@ const products=[
   {name:"No.96 Cetakan Es",cat:"Dapur",price:"Rp56.100",img:"https://i.ibb.co/4GZzkhq/Whats-App-Image-2026-05-29-at-11-28-37-1.jpg",url:"https://s.shopee.co.id/6AiCrUPL0s"},
   {name:"No.97 Pembuka Botol",cat:"Dapur",price:"Rp9.200",img:"https://i.ibb.co/0RrKNVvq/Whats-App-Image-2026-05-29-at-11-28-36-1.jpg",url:"https://s.shopee.co.id/1Lcx6QC1OW"},
   {name:"No.98 Gantungan Panci Serba Guna",cat:"Dapur",price:"Rp88.900",img:"https://i.ibb.co/yc9fyZGV/Whats-App-Image-2026-05-29-at-11-28-48.jpg",url:"https://s.shopee.co.id/4qCpJENWvt"},
-  {name:"No.99 Sliding Hook Stop Kontak",cat:"Dapur",price:"Rp1.800",img:"https://i.ibb.co/JNxRs34/Whats-App-Image-2026-05-29-at-11-28-48-1.jpg",url:"https://s.shopee.co.id/70HJtF2eLJ"},
+  {name:"No.99 Sliding Hook Stop Kontak",cat:"Dapur",price:"Rp1.800",img:"https://i.ibb.co/JNxRs34/Whats-App-Image-2026-05-29-at-11-28-48-1.jpg",url:"https://s.shopee.co.id/70HJtF2eLJ"}
 ];
  
 const icons={Kucing:"🐱",Elektronik:"📱",Rumah:"🏠",Dekorasi:"✨",Fashion:"👗",Aksesori:"💍",Otomotif:"🛵",Outdoor:"🏕️",Kecantikan:"💄",Edukasi:"📚",Dapur:"🍳"};
@@ -171,7 +171,6 @@ function priceHTML(p){
 }
  
 function cardHTML(p){
-  // Memastikan link gambar dari ImgBB dapat diakses dengan melepas pembatasan referer jika terjadi error
   const imgEl=p.img
     ?<img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.outerHTML='<div class=card-placeholder>${icons[p.cat]||"🛍️"}</div>'">
     :<div class="card-placeholder">${icons[p.cat]||"🛍️"}</div>;

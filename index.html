@@ -26,7 +26,6 @@ header p{font-size:13px;color:#888;margin-top:6px}
 .card-cat{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#aaa}
 .card-name{font-size:12px;font-weight:500;line-height:1.4;flex:1}
 .card-price{font-size:13px;font-weight:600;color:#e53935}
-/* Cek Harga badge */
 .card-price-link{
   display:inline-flex;align-items:center;gap:4px;
   font-size:11px;font-weight:500;
@@ -55,7 +54,8 @@ footer{text-align:center;padding:1.5rem 1rem;border-top:1px solid #eee;font-size
 <div class="filter-bar" id="filters"></div>
 <p class="count" id="count"></p>
 <div class="grid" id="grid"></div>
-<footer>© 2025 Roxymas88 · Semua link menuju Shopee resmi</footer>
+<footer>© 2026 Roxymas88 · Semua link menuju Shopee resmi</footer>
+
 <script>
 const products=[
   {name:"No.1 Pasir Tofu",cat:"Kucing",price:"Rp31.999",img:"https://i.ibb.co/WWCm1syk/Whats-App-Image-2026-05-29-at-11-28-15.jpg",url:"https://s.shopee.co.id/2BC41XFvmB"},
@@ -84,7 +84,7 @@ const products=[
   {name:"No.24 Alat Pembuat Popcorn 3.5L",cat:"Rumah",price:"Rp250.200",img:"https://i.ibb.co/9knddXVS/Whats-App-Image-2026-05-29-at-11-28-25-1.jpg",url:"https://s.shopee.co.id/AUrBz5jbXP"},
   {name:"No.25 Mesin Pengering 3 in 1",cat:"Rumah",price:"Rp180.000",img:"https://i.ibb.co/mV7TYyC5/Whats-App-Image-2026-05-29-at-11-28-26.jpg",url:"https://s.shopee.co.id/70HJolym92"},
   {name:"No.26 Vacuum Cleaner Robot",cat:"Rumah",price:"Rp498.600",img:"https://i.ibb.co/VWQV594K/Whats-App-Image-2026-05-29-at-11-28-51.jpg",url:"https://s.shopee.co.id/17ZZqZVMl"},
-  {name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp2.3000",img:"https://i.ibb.co/LXNwg4jY/Whats-App-Image-2026-05-29-at-11-28-33.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
+  {name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp2.300",img:"https://i.ibb.co/LXNwg4jY/Whats-App-Image-2026-05-29-at-11-28-33.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
   {name:"No.28 Bantal Anti Leher Bongkok",cat:"Rumah",price:"Rp260.100",img:"https://i.ibb.co/BVjZXM1p/Whats-App-Image-2026-05-29-at-11-28-33-2.jpg",url:"https://s.shopee.co.id/4Ax8T3CxUc"},
   {name:"No.29 Penutup Celah Pintu",cat:"Rumah",price:"Rp20.500",img:"https://i.ibb.co/1t8mY7Hx/Whats-App-Image-2026-05-29-at-11-28-40.jpg",url:"https://s.shopee.co.id/30lB5yCjom"},
   {name:"No.30 Aquarium Mini Hype",cat:"Rumah",price:"Rp124.200",img:"https://i.ibb.co/Jj0sFTyT/Whats-App-Image-2026-05-29-at-11-28-48-2.jpg",url:"https://s.shopee.co.id/8fPXsKTJMF"},
@@ -118,7 +118,7 @@ const products=[
   {name:"No.58 METAMORPH Rugby Half Zipper",cat:"Fashion",price:"Rp95.900",img:"https://i.ibb.co/msdWqqr/Whats-App-Image-2026-05-29-at-11-28-31.jpg",url:"https://s.shopee.co.id/8piy13CguR"},
   {name:"No.59 Credoman Polo Shirt Long",cat:"Fashion",price:"Rp143.000",img:"https://i.ibb.co/jkHK4pkc/Whats-App-Image-2026-05-29-at-11-28-31-1.jpg",url:"https://s.shopee.co.id/9UyeoL0HuV"},
   {name:"No.60 Credo Kaos Polo Shirt",cat:"Fashion",price:"Rp73.900",img:"https://i.ibb.co/XrV4tXQz/Whats-App-Image-2026-05-29-at-11-28-31-2.jpg",url:"https://s.shopee.co.id/2qRks789cz"},
-  {name:"No.61 Credo Kaos Polo Shirt 2",cat:"Fashion",price:"84.900",img:"https://i.ibb.co/nNf0BLT8/Whats-App-Image-2026-05-29-at-11-28-32.jpg",url:"https://s.shopee.co.id/809r1d4ASa"},
+  {name:"No.61 Credo Kaos Polo Shirt 2",cat:"Fashion",price:"Rp84.900",img:"https://i.ibb.co/nNf0BLT8/Whats-App-Image-2026-05-29-at-11-28-32.jpg",url:"https://s.shopee.co.id/809r1d4ASa"},
   {name:"No.62 Sweater Crewneck",cat:"Fashion",price:"Rp118.000",img:"https://i.ibb.co/fYjzdKFq/Whats-App-Image-2026-05-29-at-11-28-32-2.jpg",url:"https://s.shopee.co.id/40diGRX1XL"},
   {name:"No.63 Sendal Wanita Panda",cat:"Fashion",price:"Rp3.716",img:"https://i.ibb.co/BH7PCWZh/Whats-App-Image-2026-05-29-at-11-28-45-2.jpg",url:"https://s.shopee.co.id/6AiCsrC2S1"},
   {name:"No.64 Sendal Rumah Domba Anti Slip",cat:"Fashion",price:"Rp90.700",img:"https://i.ibb.co/XfV13Kzd/Whats-App-Image-2026-05-29-at-11-28-46.jpg",url:"https://s.shopee.co.id/1Lcx8372Uq"},
@@ -133,7 +133,7 @@ const products=[
   {name:"No.73 Gantungan Kacamata",cat:"Aksesori",price:"Rp10.900",img:"https://i.ibb.co/hFLvMqNX/Whats-App-Image-2026-05-29-at-11-28-49.jpg",url:"https://s.shopee.co.id/7KuAI86L0X"},
   {name:"No.74 Tas Penyimpan Kacamata",cat:"Aksesori",price:"Rp11.510",img:"https://i.ibb.co/nM46W0cT/Whats-App-Image-2026-05-29-at-11-28-49-1.jpg",url:"https://s.shopee.co.id/AUrC3yldb7"},
   {name:"No.75 Sarung Bantal Skincare",cat:"Aksesori",price:"Rp145.500",img:"https://i.ibb.co/DfSTnK7C/Whats-App-Image-2026-05-29-at-11-28-34-3.jpg",url:"https://s.shopee.co.id/4LGYffUI79"},
-  {name:"No.76 Pewangi Ruangan CreamCake 125ml",cat:"Aksesori",price:"65.000",img:"https://i.ibb.co/5XPMjn4X/Whats-App-Image-2026-05-29-at-11-28-44-2.jpg",url:"https://s.shopee.co.id/9fI53AkuCi"},
+  {name:"No.76 Pewangi Ruangan CreamCake 125ml",cat:"Aksesori",price:"Rp65.000",img:"https://i.ibb.co/5XPMjn4X/Whats-App-Image-2026-05-29-at-11-28-44-2.jpg",url:"https://s.shopee.co.id/9fI53AkuCi"},
   {name:"No.77 Diffuser Anti Gravitasi",cat:"Aksesori",price:"Rp169.500",img:"https://i.ibb.co/j9zP57H0/Whats-App-Image-2026-05-29-at-11-28-28.jpg",url:"https://s.shopee.co.id/7pqQocs884"},
   {name:"No.78 Diffuser Aerotech P8 LED",cat:"Aksesori",price:"Rp49.900",img:"https://i.ibb.co/hF5m9SQ4/Whats-App-Image-2026-05-29-at-11-28-47-1.jpg",url:"https://s.shopee.co.id/AKXlr0lEg4"},
   {name:"No.79 MiLi MiTag GPS Tracker",cat:"Otomotif",price:"Rp111.600",img:"https://i.ibb.co/7JxmL9tf/Whats-App-Image-2026-05-29-at-11-28-27.jpg",url:"https://s.shopee.co.id/1gFnT6fhDr"},
@@ -163,18 +163,19 @@ const icons={Kucing:"🐱",Elektronik:"📱",Rumah:"🏠",Dekorasi:"✨",Fashion
 const cats=["Semua",...[...new Set(products.map(p=>p.cat))]];
 let activeCat="Semua",query="";
  
-const shopeeIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`;
+const shopeeIcon=<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>;
  
 function priceHTML(p){
-  if(p.price) return `<span class="card-price">${p.price}</span>`;
-  return `<a class="card-price-link" href="${p.url}" target="_blank" rel="noopener">${shopeeIcon} Cek Harga</a>`;
+  if(p.price) return <span class="card-price">${p.price}</span>;
+  return <a class="card-price-link" href="${p.url}" target="_blank" rel="noopener">${shopeeIcon} Cek Harga</a>;
 }
  
 function cardHTML(p){
+  // Memastikan link gambar dari ImgBB dapat diakses dengan melepas pembatasan referer jika terjadi error
   const imgEl=p.img
-    ?`<img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<div class=card-placeholder>${icons[p.cat]||"🛍️"}</div>'">`
-    :`<div class="card-placeholder">${icons[p.cat]||"🛍️"}</div>`;
-  return `<div class="card">${imgEl}<div class="card-body"><span class="card-cat">${p.cat}</span><span class="card-name">${p.name}</span>${priceHTML(p)}<a class="card-btn" href="${p.url}" target="_blank" rel="noopener">Lihat di Shopee →</a></div></div>`;
+    ?<img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null; this.outerHTML='<div class=card-placeholder>${icons[p.cat]||"🛍️"}</div>'">
+    :<div class="card-placeholder">${icons[p.cat]||"🛍️"}</div>;
+  return <div class="card">${imgEl}<div class="card-body"><span class="card-cat">${p.cat}</span><span class="card-name">${p.name}</span>${priceHTML(p)}<a class="card-btn" href="${p.url}" target="_blank" rel="noopener">Lihat di Shopee →</a></div></div>;
 }
  
 function render(){

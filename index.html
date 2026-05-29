@@ -26,9 +26,6 @@ header p{font-size:13px;color:#888;margin-top:6px}
 .card-cat{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#aaa}
 .card-name{font-size:12px;font-weight:500;line-height:1.4;flex:1}
 .card-price{font-size:13px;font-weight:600;color:#e53935}
-.card-price-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:#ee4d2d;background:#fff4f2;border:1px solid #ffd4cc;padding:3px 10px;border-radius:20px;text-decoration:none;width:fit-content;transition:background .15s,border-color .15s;}
-.card-price-link:hover{background:#ffe8e3;border-color:#ee4d2d}
-.card-price-link svg{width:12px;height:12px;flex-shrink:0}
 .card-btn{display:block;text-align:center;font-size:11px;padding:6px;border-radius:8px;border:1px solid #e0e0e0;color:#1a1a1a;text-decoration:none;margin-top:6px;transition:background .15s}
 .card-btn:hover{background:#f5f5f2}
 footer{text-align:center;padding:1.5rem 1rem;border-top:1px solid #eee;font-size:12px;color:#bbb;margin-top:.5rem}
@@ -46,7 +43,7 @@ footer{text-align:center;padding:1.5rem 1rem;border-top:1px solid #eee;font-size
 <div class="grid" id="grid"></div>
 <footer>© 2025 Roxymas88 · Semua link menuju Shopee resmi</footer>
 <script>
-const BASE="https://raw.githubusercontent.com/Roxymas88/roxymas88/main/images/";
+const BASE="https://raw.githubusercontent.com/Roxymas88/roxymas88/main/";
 const products=[
 {name:"No.1 Pasir Tofu",cat:"Kucing",price:"Rp31.999",img:BASE+"pasir-tofu.jpg",url:"https://s.shopee.co.id/2BC41XFvmB"},
 {name:"No.2 Earmits Tetes",cat:"Kucing",price:"Rp24.359",img:BASE+"earmits-tetes.jpg",url:"https://s.shopee.co.id/6pxtaGabO1"},
@@ -74,7 +71,7 @@ const products=[
 {name:"No.24 Alat Pembuat Popcorn 3.5L",cat:"Rumah",price:"Rp250.200",img:BASE+"mesin-popcorn.jpg",url:"https://s.shopee.co.id/AUrBz5jbXP"},
 {name:"No.25 Mesin Pengering 3 in 1",cat:"Rumah",price:"Rp180.000",img:BASE+"mesin-pengering.jpg",url:"https://s.shopee.co.id/70HJolym92"},
 {name:"No.26 Vacuum Cleaner Robot",cat:"Rumah",price:"Rp498.600",img:BASE+"vacuum-robot.jpg",url:"https://s.shopee.co.id/17ZZqZVMl"},
-{name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp2.3000",img:BASE+"hanger-baju.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
+{name:"No.27 Hanger Baju",cat:"Rumah",price:"Rp23.000",img:BASE+"hanger-baju.jpg",url:"https://s.shopee.co.id/9fI50vnyz6"},
 {name:"No.28 Bantal Anti Leher Bongkok",cat:"Rumah",price:"Rp260.100",img:BASE+"bantal-leher.jpg",url:"https://s.shopee.co.id/4Ax8T3CxUc"},
 {name:"No.29 Penutup Celah Pintu",cat:"Rumah",price:"Rp20.500",img:BASE+"penutup-celah-pintu.jpg",url:"https://s.shopee.co.id/30lB5yCjom"},
 {name:"No.30 Aquarium Mini Hype",cat:"Rumah",price:"Rp124.200",img:BASE+"aquarium-mini.jpg",url:"https://s.shopee.co.id/8fPXsKTJMF"},
@@ -114,7 +111,7 @@ const products=[
 {name:"No.64 Sendal Rumah Domba Anti Slip",cat:"Fashion",price:"Rp90.700",img:BASE+"sendal-domba.jpg",url:"https://s.shopee.co.id/1Lcx8372Uq"},
 {name:"No.65 Kursi Lesehan Nyaman",cat:"Rumah",price:"Rp152.910",img:BASE+"kursi-lesehan.jpg",url:"https://s.shopee.co.id/5L97OwZLGA"},
 {name:"No.66 Jam Bisnis Winner Transparent",cat:"Aksesori",price:"Rp886.400",img:BASE+"jam-winner.jpg",url:"https://s.shopee.co.id/2g8Kfw9CVS"},
-{name:"No.67 Gantungan Kunci Bmw",cat:"Aksesori",price:"Rp39.500",img:BASE+"gantungan-bmw.jpg",url:"https://s.shopee.co.id/40diHxUBJr"},
+{name:"No.67 Gantungan Kunci BMW",cat:"Aksesori",price:"Rp39.500",img:BASE+"gantungan-bmw.jpg",url:"https://s.shopee.co.id/40diHxUBJr"},
 {name:"No.68 Gantungan Kunci Fluffy",cat:"Aksesori",price:"Rp4.999",img:BASE+"gantungan-fluffy.jpg",url:"https://s.shopee.co.id/7KuAGDaX9f"},
 {name:"No.69 Gantungan Kunci Lonceng",cat:"Aksesori",price:"Rp11.999",img:BASE+"gantungan-lonceng.jpg",url:"https://s.shopee.co.id/4qCpHdW6WY"},
 {name:"No.70 Gantungan Kunci Dino Swap Face",cat:"Aksesori",price:"Rp3.800",img:BASE+"gantungan-dino-swap.jpg",url:"https://s.shopee.co.id/9fI52Y8q9b"},
@@ -123,7 +120,7 @@ const products=[
 {name:"No.73 Gantungan Kacamata",cat:"Aksesori",price:"Rp10.900",img:BASE+"gantungan-kacamata.jpg",url:"https://s.shopee.co.id/7KuAI86L0X"},
 {name:"No.74 Tas Penyimpan Kacamata",cat:"Aksesori",price:"Rp11.510",img:BASE+"tas-kacamata.jpg",url:"https://s.shopee.co.id/AUrC3yldb7"},
 {name:"No.75 Sarung Bantal Skincare",cat:"Aksesori",price:"Rp145.500",img:BASE+"sarung-bantal.jpg",url:"https://s.shopee.co.id/4LGYffUI79"},
-{name:"No.76 Pewangi Ruangan CreamCake 125ml",cat:"Aksesori",price:"Rp65.000",img:BASE+"pewangi-creamcake.jpg",url:"https://s.shopee.co.id/9fI53AkuCi"},
+{name:"No.76 Pewangi Ruangan CreamCake",cat:"Aksesori",price:"Rp65.000",img:BASE+"pewangi-creamcake.jpg",url:"https://s.shopee.co.id/9fI53AkuCi"},
 {name:"No.77 Diffuser Anti Gravitasi",cat:"Aksesori",price:"Rp169.500",img:BASE+"diffuser-anti-gravitasi.jpg",url:"https://s.shopee.co.id/7pqQocs884"},
 {name:"No.78 Diffuser Aerotech P8 LED",cat:"Aksesori",price:"Rp49.900",img:BASE+"diffuser-aerotech.jpg",url:"https://s.shopee.co.id/AKXlr0lEg4"},
 {name:"No.79 MiLi MiTag GPS Tracker",cat:"Otomotif",price:"Rp111.600",img:BASE+"gps-tracker.jpg",url:"https://s.shopee.co.id/1gFnT6fhDr"},
@@ -151,16 +148,11 @@ const products=[
 const icons={Kucing:"🐱",Elektronik:"📱",Rumah:"🏠",Dekorasi:"✨",Fashion:"👗",Aksesori:"💍",Otomotif:"🛵",Outdoor:"🏕️",Kecantikan:"💄",Edukasi:"📚",Dapur:"🍳"};
 const cats=["Semua",...[...new Set(products.map(p=>p.cat))]];
 let activeCat="Semua",query="";
-const shopeeIcon=`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`;
-function priceHTML(p){
-if(p.price) return `<span class="card-price">${p.price}</span>`;
-return `<a class="card-price-link" href="${p.url}" target="_blank" rel="noopener">${shopeeIcon} Cek Harga</a>`;
-}
 function cardHTML(p){
 const imgEl=p.img
 ?`<img class="card-img" src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<div class=card-placeholder>${icons[p.cat]||"🛍️"}</div>'">`
 :`<div class="card-placeholder">${icons[p.cat]||"🛍️"}</div>`;
-return `<div class="card">${imgEl}<div class="card-body"><span class="card-cat">${p.cat}</span><span class="card-name">${p.name}</span>${priceHTML(p)}<a class="card-btn" href="${p.url}" target="_blank" rel="noopener">Lihat di Shopee →</a></div></div>`;
+return `<div class="card">${imgEl}<div class="card-body"><span class="card-cat">${p.cat}</span><span class="card-name">${p.name}</span><span class="card-price">${p.price}</span><a class="card-btn" href="${p.url}" target="_blank" rel="noopener">Lihat di Shopee →</a></div></div>`;
 }
 function render(){
 const f=products.filter(p=>(activeCat==="Semua"||p.cat===activeCat)&&(p.name.toLowerCase().includes(query.toLowerCase())||p.cat.toLowerCase().includes(query.toLowerCase())));

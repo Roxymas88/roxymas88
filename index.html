@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roxymas88 — Shopee Affiliate</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;min-height:100vh}
+header{text-align:center;padding:2.5rem 1rem 2rem;background:#fff;border-bottom:1px solid #e8e8e4}
+.badge{display:inline-block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#888;border:1px solid #ddd;padding:4px 14px;border-radius:20px;margin-bottom:1rem}
+header h1{font-size:28px;font-weight:500;letter-spacing:-0.5px}
+header p{font-size:13px;color:#888;margin-top:8px}
+.search-wrap{padding:1rem;display:flex;justify-content:center;background:#fff;border-bottom:1px solid #e8e8e4}
+.search-wrap input{width:100%;max-width:360px;font-size:13px;padding:9px 18px;border-radius:20px;border:1px solid #ddd;background:#f9f9f7;outline:none}
+.search-wrap input:focus{border-color:#aaa}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;padding:1rem;justify-content:center;background:#fff;border-bottom:1px solid #e8e8e4}
+.filter-btn{font-size:12px;padding:6px 16px;border-radius:20px;border:1px solid #ddd;background:transparent;color:#666;cursor:pointer;transition:all 0.15s}
+.filter-btn.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+.count{text-align:center;font-size:12px;color:#999;padding:0.75rem 0 0.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;padding:1rem;max-width:1100px;margin:0 auto}
+.card{background:#fff;border:1px solid #e8e8e4;border-radius:12px;overflow:hidden;transition:border-color 0.15s,transform 0.15s;display:flex;flex-direction:column}
+.card:hover{border-color:#bbb;transform:translateY(-2px)}
+.card-img{width:100%;height:110px;display:flex;align-items:center;justify-content:center;font-size:36px;background:#f5f5f2}
+.card-body{padding:10px 12px;flex:1;display:flex;flex-direction:column;gap:5px}
+.card-cat{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#aaa}
+.card-name{font-size:13px;font-weight:500;color:#1a1a1a;line-height:1.4;flex:1}
+.card-btn{display:block;text-align:center;font-size:12px;padding:7px;border-radius:8px;border:1px solid #e0e0e0;color:#1a1a1a;text-decoration:none;margin-top:6px;transition:background 0.15s}
+.card-btn:hover{background:#f5f5f2}
+footer{text-align:center;padding:2rem 1rem;font-size:12px;color:#bbb;border-top:1px solid #e8e8e4;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Shopee Affiliate</div>
+  <h1>Roxymas88</h1>
+  <p>Produk pilihan terbaik — harga terjangkau, kualitas terpercaya</p>
+</header>
+
+<div class="search-wrap">
+  <input type="text" id="search" placeholder="Cari produk...">
+</div>
+
+<div class="filter-bar" id="filters"></div>
+<p class="count" id="count"></p>
+<div class="grid" id="grid"></div>
+
+<footer>© 2025 Roxymas88 · Semua link menuju Shopee resmi</footer>
+
+<script>
+const products = [
+  {name:"Pasir Tofu",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/2BC41XFvmB"},
+  {name:"Earmits Tetes",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/6pxtaGabO1"},
+  {name:"Mr.Vet Makanan Kering 1kg",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/AAELYQwN3X"},
+  {name:"Mr.Vet Makanan Basah",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/5ApfbIF1DO"},
+  {name:"Catnip",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/4LGYbukJec"},
+  {name:"Baju Kucing/Anjing",cat:"Kucing",icon:"🐾",url:"https://s.shopee.co.id/AUrBxXW4H8"},
+  {name:"Water Fountain Stainless",cat:"Kucing",icon:"💧",url:"https://s.shopee.co.id/4qCpDfQhte"},
+  {name:"Tempat Makanan Kucing",cat:"Kucing",icon:"🐱",url:"https://s.shopee.co.id/902OBNMDII"},
+  {name:"Mangkok Stainless Anti Licin",cat:"Kucing",icon:"🥣",url:"https://s.shopee.co.id/W3q3mtU0W"},
+  {name:"HY300 Pro 4K Proyektor Mini HD",cat:"Elektronik",icon:"📽️",url:"https://s.shopee.co.id/1BJWr8uaWK"},
+  {name:"AIMO M08F Thermal Printer A4",cat:"Elektronik",icon:"🖨️",url:"https://s.shopee.co.id/gNGGLl9FE"},
+  {name:"Printer Thermal Portable",cat:"Elektronik",icon:"🖨️",url:"https://s.shopee.co.id/1Lcx3dBqur"},
+  {name:"Pompa Angin Listrik 2 in 1",cat:"Elektronik",icon:"💨",url:"https://s.shopee.co.id/1VwNG09Ocm"},
+  {name:"KS Wifi Kamera CCTV Mini",cat:"Elektronik",icon:"📷",url:"https://s.shopee.co.id/2VouRt5CcL"},
+  {name:"Bluetooth Speaker G63",cat:"Elektronik",icon:"🔊",url:"https://s.shopee.co.id/6pxtgdAtGg"},
+  {name:"Stopkontak Pink Wireless",cat:"Elektronik",icon:"🔌",url:"https://s.shopee.co.id/LkPwstT4U"},
+  {name:"Alat Bantu Lipat Baju",cat:"Rumah",icon:"👕",url:"https://s.shopee.co.id/40diEiJ38Z"},
+  {name:"Mesin Cuci Sepatu Portable",cat:"Rumah",icon:"👟",url:"https://s.shopee.co.id/30lB2viKZK"},
+  {name:"Alat Cuci Motor",cat:"Rumah",icon:"🚿",url:"https://s.shopee.co.id/5q5MQR3jXo"},
+  {name:"Alat Pembuat Popcorn 3.5L",cat:"Rumah",icon:"🍿",url:"https://s.shopee.co.id/AUrBz5jbXP"},
+  {name:"Mesin Pengering 3 in 1",cat:"Rumah",icon:"🌀",url:"https://s.shopee.co.id/70HJolym92"},
+  {name:"Vacuum Cleaner Robot",cat:"Rumah",icon:"🤖",url:"https://s.shopee.co.id/17ZZqZVMl"},
+  {name:"Hanger Baju",cat:"Rumah",icon:"🪝",url:"https://s.shopee.co.id/9fI50vnyz6"},
+  {name:"Bantal Anti Leher Bongkok",cat:"Rumah",icon:"😴",url:"https://s.shopee.co.id/4Ax8T3CxUc"},
+  {name:"Penutup Celah Pintu",cat:"Rumah",icon:"🚪",url:"https://s.shopee.co.id/30lB5yCjom"},
+  {name:"Aquarium Mini Cupang Aesthetic",cat:"Rumah",icon:"🐟",url:"https://s.shopee.co.id/8fPXsKTJMF"},
+  {name:"Kipas Anti Nyamuk USB",cat:"Rumah",icon:"🦟",url:"https://s.shopee.co.id/902OEZlpDS"},
+  {name:"Bel Lonceng",cat:"Rumah",icon:"🔔",url:"https://s.shopee.co.id/6AiCrR09S5"},
+  {name:"Alat Perangkap Nyamuk",cat:"Rumah",icon:"🦟",url:"https://s.shopee.co.id/9ALoRGO9vq"},
+  {name:"One Star Spray Anti Bocor",cat:"Rumah",icon:"🔧",url:"https://s.shopee.co.id/902ODIItgh"},
+  {name:"Karpet Turki Under 300k",cat:"Dekorasi",icon:"🟫",url:"https://s.shopee.co.id/3B4bLLQVgx"},
+  {name:"Karpet Aesthetic",cat:"Dekorasi",icon:"🟫",url:"https://s.shopee.co.id/AUrC4rkBLJ"},
+  {name:"Permadani Ukuran Besar",cat:"Dekorasi",icon:"🟫",url:"https://s.shopee.co.id/9Uyet4HykP"},
+  {name:"Jam Dinding Jumbo Aesthetic",cat:"Dekorasi",icon:"🕐",url:"https://s.shopee.co.id/30lB9FDRD1"},
+  {name:"Tirai Gorden Lipat Hitam",cat:"Dekorasi",icon:"🪟",url:"https://s.shopee.co.id/8ATHGn7Rrf"},
+  {name:"Rak Dinding Hexagonal Kayu Jati",cat:"Dekorasi",icon:"📦",url:"https://s.shopee.co.id/70HJro1PU2"},
+  {name:"Rak Dinding Hexagon Aesthetic",cat:"Dekorasi",icon:"📦",url:"https://s.shopee.co.id/7pqQrZsrib"},
+  {name:"Rak Piring Wastafel",cat:"Dekorasi",icon:"🍽️",url:"https://s.shopee.co.id/1106is5BuL"},
+  {name:"Rak Bumbu Dapur",cat:"Dekorasi",icon:"🧂",url:"https://s.shopee.co.id/qggWarCSa"},
+  {name:"Rak Sepatu X",cat:"Dekorasi",icon:"👟",url:"https://s.shopee.co.id/3B4bIvu68f"},
+  {name:"Gantungan Baju Aesthetic",cat:"Dekorasi",icon:"🪝",url:"https://s.shopee.co.id/9pbVFN3sAF"},
+  {name:"Rak Kosmetik Acrylic",cat:"Dekorasi",icon:"💄",url:"https://s.shopee.co.id/9ALoSn3esE"},
+  {name:"Hordeng Aesthetic Per Meter",cat:"Dekorasi",icon:"🪟",url:"https://s.shopee.co.id/1BJWy8fad3"},
+  {name:"Lampu LED Kupu-Kupu",cat:"Dekorasi",icon:"🦋",url:"https://s.shopee.co.id/3qKI4vxeK6"},
+  {name:"Lampu LED Sakura",cat:"Dekorasi",icon:"🌸",url:"https://s.shopee.co.id/3g0rsfVZci"},
+  {name:"LED Kembang Api",cat:"Dekorasi",icon:"✨",url:"https://s.shopee.co.id/2VouUll4cF"},
+  {name:"Lampu Tidur Panda",cat:"Dekorasi",icon:"🐼",url:"https://s.shopee.co.id/5L95s1hfVa"},
+  {name:"Lampu Tidur Kupu-Kupu",cat:"Dekorasi",icon:"🦋",url:"https://s.shopee.co.id/1Lcx6lM6FD"},
+  {name:"Lampu Tidur Mario Bros",cat:"Dekorasi",icon:"⭐",url:"https://s.shopee.co.id/3VhRgwUjAx"},
+  {name:"Lampu Tembakan",cat:"Dekorasi",icon:"💡",url:"https://s.shopee.co.id/9fI53ajCcP"},
+  {name:"Berangkas Jam Dinding",cat:"Dekorasi",icon:"🔐",url:"https://s.shopee.co.id/2g8KggTSbd"},
+  {name:"Jas Hujan Pria",cat:"Fashion",icon:"🌧️",url:"https://s.shopee.co.id/1gFnSYlO33"},
+  {name:"Jas Hujan Hijab Gamis",cat:"Fashion",icon:"🌧️",url:"https://s.shopee.co.id/50WFQiy9Mh"},
+  {name:"Holder HP Kulit Anti Air",cat:"Fashion",icon:"📱",url:"https://s.shopee.co.id/gNGGpysUQ"},
+  {name:"Polo Shirt Panjang",cat:"Fashion",icon:"👔",url:"https://s.shopee.co.id/20sds933Mq"},
+  {name:"Polo Old Money",cat:"Fashion",icon:"👔",url:"https://s.shopee.co.id/5Apfe8Hxl2"},
+  {name:"METAMORPH Rugby Half Zipper",cat:"Fashion",icon:"🧥",url:"https://s.shopee.co.id/8piy13CguR"},
+  {name:"Credoman Polo Shirt Long",cat:"Fashion",icon:"👔",url:"https://s.shopee.co.id/9UyeoL0HuV"},
+  {name:"Credo Kaos Polo Shirt",cat:"Fashion",icon:"👕",url:"https://s.shopee.co.id/2qRks789cz"},
+  {name:"Credo Kaos Polo Shirt 2",cat:"Fashion",icon:"👕",url:"https://s.shopee.co.id/809r1d4ASa"},
+  {name:"Sweater Crewneck",cat:"Fashion",icon:"🧥",url:"https://s.shopee.co.id/40diGRX1XL"},
+  {name:"Sendal Wanita Panda",cat:"Fashion",icon:"🐼",url:"https://s.shopee.co.id/6AiCsrC2S1"},
+  {name:"Sendal Rumah Domba Anti Slip",cat:"Fashion",icon:"🐑",url:"https://s.shopee.co.id/1Lcx8372Uq"},
+  {name:"Jam Bisnis Twelve Round",cat:"Aksesori",icon:"⌚",url:"https://s.shopee.co.id/1VwNHjA27g"},
+  {name:"Jam Bisnis Winner Transparent",cat:"Aksesori",icon:"⌚",url:"https://s.shopee.co.id/2g8Kfw9CVS"},
+  {name:"Gantungan Kunci AE86",cat:"Aksesori",icon:"🔑",url:"https://s.shopee.co.id/40diHxUBJr"},
+  {name:"Gantungan Kunci Fluffy",cat:"Aksesori",icon:"🔑",url:"https://s.shopee.co.id/7KuAGDaX9f"},
+  {name:"Gantungan Kunci Lonceng",cat:"Aksesori",icon:"🔔",url:"https://s.shopee.co.id/4qCpHdW6WY"},
+  {name:"Gantungan Kunci Dino Swap Face",cat:"Aksesori",icon:"🦕",url:"https://s.shopee.co.id/9fI52Y8q9b"},
+  {name:"Gantungan Kunci Dino Kuning",cat:"Aksesori",icon:"🦕",url:"https://s.shopee.co.id/5VSW4wbAgW"},
+  {name:"Gantungan Kunci Loopy",cat:"Aksesori",icon:"🔑",url:"https://s.shopee.co.id/1VwNJcBr7Q"},
+  {name:"Gantungan Kacamata",cat:"Aksesori",icon:"👓",url:"https://s.shopee.co.id/7KuAI86L0X"},
+  {name:"Tas Penyimpan Kacamata",cat:"Aksesori",icon:"👓",url:"https://s.shopee.co.id/AUrC3yldb7"},
+  {name:"Sarung Bantal Skincare",cat:"Aksesori",icon:"🛏️",url:"https://s.shopee.co.id/4LGYffUI79"},
+  {name:"Serein Reed Diffuser 125ml",cat:"Aksesori",icon:"🕯️",url:"https://s.shopee.co.id/9fI53AkuCi"},
+  {name:"Diffuser Anti Gravitasi",cat:"Aksesori",icon:"💨",url:"https://s.shopee.co.id/7pqQocs884"},
+  {name:"Diffuser Aerotech P8 5 Mode LED",cat:"Aksesori",icon:"💨",url:"https://s.shopee.co.id/AKXlr0lEg4"},
+  {name:"Kanopi Motor",cat:"Otomotif",icon:"🛵",url:"https://s.shopee.co.id/2qRkqpUE9H"},
+  {name:"MiLi MiTag GPS Tracker",cat:"Otomotif",icon:"📍",url:"https://s.shopee.co.id/1gFnT6fhDr"},
+  {name:"Sofa Angin Portable",cat:"Outdoor",icon:"🛋️",url:"https://s.shopee.co.id/5ApfdSLWV8"},
+  {name:"Bean Bag Angin",cat:"Outdoor",icon:"💺",url:"https://s.shopee.co.id/5VSW2VrPho"},
+  {name:"Kursi Portable",cat:"Outdoor",icon:"🪑",url:"https://s.shopee.co.id/gNGISBy1n"},
+  {name:"1 Set Alat Pancing",cat:"Outdoor",icon:"🎣",url:"https://s.shopee.co.id/4LGYfNS8zv"},
+  {name:"1 Set Alat Casting",cat:"Outdoor",icon:"🎣",url:"https://s.shopee.co.id/8ATHEUltBU"},
+  {name:"Mesin Boxing",cat:"Outdoor",icon:"🥊",url:"https://s.shopee.co.id/40diGtUVpu"},
+  {name:"iReborn Alat Fitness Home Gym",cat:"Outdoor",icon:"💪",url:"https://s.shopee.co.id/2LVUGysgxq"},
+  {name:"Alat Kepang Rambut Otomatis",cat:"Kecantikan",icon:"💇",url:"https://s.shopee.co.id/17ZTfvsiX"},
+  {name:"Pena Terjemah Cerdas",cat:"Edukasi",icon:"✏️",url:"https://s.shopee.co.id/7pqQoWP02D"},
+  {name:"Gelas Unik Bentuk Kelapa",cat:"Dapur",icon:"🥥",url:"https://s.shopee.co.id/20sdv7LBpI"},
+  {name:"Gelas Lego",cat:"Dapur",icon:"🧱",url:"https://s.shopee.co.id/3B4bJIFs6j"},
+  {name:"Toples Makanan 3pcs",cat:"Dapur",icon:"🫙",url:"https://s.shopee.co.id/3LO1UMOgc7"},
+  {name:"Chasen Matcha Resin",cat:"Dapur",icon:"🍵",url:"https://s.shopee.co.id/7fX0eM805j"},
+  {name:"Botol Saos Anti Tumpah",cat:"Dapur",icon:"🍶",url:"https://s.shopee.co.id/2g8KgoJHlQ"},
+  {name:"Botol Bumbu",cat:"Dapur",icon:"🫙",url:"https://s.shopee.co.id/8piy2c4zfW"},
+  {name:"1 Set Sendok Angsa",cat:"Dapur",icon:"🥄",url:"https://s.shopee.co.id/60OmfR7GxZ"},
+  {name:"Cetakan Es",cat:"Dapur",icon:"🧊",url:"https://s.shopee.co.id/6AiCrUPL0s"},
+  {name:"Pembuka Botol",cat:"Dapur",icon:"🔧",url:"https://s.shopee.co.id/1Lcx6QC1OW"},
+  {name:"Gantungan Panic Serba Guna",cat:"Dapur",icon:"🪝",url:"https://s.shopee.co.id/4qCpJENWvt"},
+  {name:"Sliding Hook Stop Kontak",cat:"Dapur",icon:"🔌",url:"https://s.shopee.co.id/70HJtF2eLJ"},
+];
+
+const cats = ["Semua",...[...new Set(products.map(p=>p.cat))]];
+let activeCat = "Semua", query = "";
+
+function render(){
+  const filtered = products.filter(p=>{
+    const matchCat = activeCat==="Semua"||p.cat===activeCat;
+    const matchQ = p.name.toLowerCase().includes(query.toLowerCase())||p.cat.toLowerCase().includes(query.toLowerCase());
+    return matchCat&&matchQ;
+  });
+  document.getElementById("count").textContent = filtered.length+" produk ditemukan";
+  document.getElementById("grid").innerHTML = filtered.map(p=>`
+    <div class="card">
+      <div class="card-img">${p.icon}</div>
+      <div class="card-body">
+        <span class="card-cat">${p.cat}</span>
+        <span class="card-name">${p.name}</span>
+        <a class="card-btn" href="${p.url}" target="_blank" rel="noopener">Lihat di Shopee →</a>
+      </div>
+    </div>
+  `).join("");
+}
+
+const filterBar = document.getElementById("filters");
+cats.forEach(c=>{
+  const btn = document.createElement("button");
+  btn.className = "filter-btn"+(c==="Semua"?" active":"");
+  btn.textContent = c;
+  btn.onclick = ()=>{
+    activeCat = c;
+    document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    render();
+  };
+  filterBar.appendChild(btn);
+});
+
+document.getElementById("search").addEventListener("input",e=>{
+  query = e.target.value;
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
